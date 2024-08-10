@@ -3,13 +3,13 @@ const filterRegion = document.querySelector('.filter-region');
 const searchInput = document.querySelector('.search-con input');
 const darkMode = document.querySelector('.mode');
 
-let allConData
+let countriesData;
 
 fetch('https://restcountries.com/v3.1/all')
 .then((res) => res.json())
 .then((data) => {
   renderCon(data)
-  allConData = data
+  countriesData = data
 }) 
 
     filterRegion.addEventListener("change", (e) => {
@@ -38,7 +38,7 @@ function renderCon(data) {
                   };
 
 searchInput.addEventListener('input', (e) => {
-  const filterCon = allConData.filter((country) => country.name.common.toLowerCase().includes(e.target.value.toLowerCase()))
+  const filterCon = countriesData.filter((country) => country.name.common.toLowerCase().includes(e.target.value.toLowerCase()))
 
   renderCon(filterCon);
 });

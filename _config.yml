@@ -1,5 +1,0 @@
-
-csp:
-  default-src: 'none';
-  script-src: 'self'; 
-  img-src: 'self'; 
